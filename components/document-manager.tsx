@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { TemplateList } from "@/components/template-list"
 import { DocumentList } from "@/components/document-list"
 import { CreateDocumentDialog } from "@/components/create-document-dialog"
-import { LogOut, FileText, AlertCircle, Folder } from "lucide-react"
+import { LogOut, AlertCircle, Folder } from 'lucide-react'
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { createUhuuApiClient, type Team, type Workspace, type Template } from "@/lib/uhuu-api-client"
 
@@ -101,9 +101,13 @@ export function DocumentManager({ apiToken, onResetToken }: DocumentManagerProps
       <header className="sticky top-0 z-10 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3">
-            <FileText className="h-6 w-6" />
+            <img 
+              src="https://platform.uhuu.io/common/brand/logos/uhuu_owl.svg" 
+              alt="Uhuu" 
+              className="h-8 w-8"
+            />
             <div>
-              <h1 className="text-lg font-semibold">Uhuu Documents</h1>
+              <h1 className="text-lg font-semibold">Uhuu API Playground</h1>
               {selectedWorkspace ? (
                 <p className="text-sm text-muted-foreground">
                   {teamInfo?.name} / <span className="font-medium text-foreground">{selectedWorkspace.name}</span>

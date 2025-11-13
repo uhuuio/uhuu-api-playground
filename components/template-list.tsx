@@ -1,7 +1,7 @@
 "use client"
 
 import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
-import { FileText } from "lucide-react"
+import { BookText } from 'lucide-react'
 
 interface Template {
   id: number
@@ -27,7 +27,7 @@ export function TemplateList({ templates, onSelectTemplate }: TemplateListProps)
           >
             <CardHeader>
               <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
-                <FileText className="h-6 w-6 text-primary" />
+                <BookText className="h-6 w-6 text-primary" />
               </div>
               <CardTitle className="text-lg truncate" title={template.name}>
                 {template.name}

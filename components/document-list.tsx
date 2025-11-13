@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react"
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { FileText, Calendar, ExternalLink, RefreshCw, Loader2 } from 'lucide-react'
+import { FileText, Calendar, ExternalLink, RefreshCw, Loader2, BookText } from 'lucide-react'
 import { createUhuuApiClient, type Document, type Template } from "@/lib/uhuu-api-client"
 
 interface DocumentListProps {
@@ -104,7 +104,7 @@ export function DocumentList({ apiToken, templateId, refreshTrigger, template }:
           <div className="flex items-start justify-between gap-4">
             <div className="flex-1 space-y-1">
               <div className="flex items-center gap-2">
-                <FileText className="h-5 w-5 text-muted-foreground" />
+                <BookText className="h-5 w-5 text-muted-foreground" />
                 <h3 className="font-semibold">{template.name}</h3>
               </div>
               {template.description && <p className="text-sm text-muted-foreground">{template.description}</p>}
