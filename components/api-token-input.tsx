@@ -77,9 +77,9 @@ export function ApiTokenInput({ onTokenSubmit }: ApiTokenInputProps) {
           <div className="mt-6 space-y-2 text-xs text-muted-foreground">
             <p className="font-medium text-foreground">About this playground:</p>
             <ul className="list-disc list-inside space-y-1 ml-2">
-              <li>Test all Uhuu API endpoints interactively</li>
-              <li>View real-time requests and responses</li>
-              <li>Explore API documentation inline</li>
+              <li>Browse workspaces and templates</li>
+              <li>Create and manage documents</li>
+              <li>Test API endpoints interactively</li>
             </ul>
           </div>
         </CardContent>
