@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react"
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { FileText, Calendar, ExternalLink, RefreshCw } from "lucide-react"
+import { FileText, Calendar, ExternalLink, RefreshCw, Loader2 } from 'lucide-react'
 import { createUhuuApiClient, type Document, type Template } from "@/lib/uhuu-api-client"
 
 interface DocumentListProps {
@@ -135,7 +135,11 @@ export function DocumentList({ apiToken, templateId, refreshTrigger, template }:
                 <div className="flex items-start justify-between gap-3">
                   <div className="flex min-w-0 flex-1 gap-3">
                     <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md border bg-muted/30">
-                      <FileText className="h-5 w-5 text-muted-foreground" />
+                      {document.status === "rendering" || document.status === "awaiting" ? (
+                        <Loader2 className="h-5 w-5 animate-spin text-primary" />
+                      ) : (
+                        <FileText className="h-5 w-5 text-muted-foreground" />
+                      )}
                     </div>
                     <div className="min-w-0 flex-1 space-y-1">
                       <CardTitle className="truncate text-base font-medium">Doc {document.id.slice(-8)}</CardTitle>
@@ -146,7 +150,14 @@ export function DocumentList({ apiToken, templateId, refreshTrigger, template }:
                     </div>
                   </div>
                   <Badge variant={getStatusVariant(document.status)} className="shrink-0">
-                    {document.status}
+                    {document.status === "rendering" || document.status === "awaiting" ? (
+                      <span className="flex items-center gap-1">
+                        <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-current"></span>
+                        {document.status}
+                      </span>
+                    ) : (
+                      document.status
+                    )}
                   </Badge>
                 </div>
               </CardHeader>
